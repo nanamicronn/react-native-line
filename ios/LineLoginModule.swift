@@ -55,7 +55,7 @@ import LineSDK
     
     DispatchQueue.main.async {
       LoginManager.shared.login(
-        permissions: Set(scopes),
+        permissions: Set([.profile, .openID, .email]),
         in: nil,
         parameters: parameters) { result in
           switch result {
@@ -139,7 +139,7 @@ import LineSDK
       "accessToken": token.value,
       "createdAt": token.createdAt,
       "expiresIn": token.expiresAt,
-      "idToken": try? JSONSerialization.data(withJSONObject: token.IDToken ?? [:], options: [])
+      "idToken": token.IDTokenRaw ?? ""
     ]
   }
   
