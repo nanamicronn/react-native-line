@@ -139,7 +139,7 @@ import LineSDK
       "accessToken": token.value,
       "createdAt": token.createdAt,
       "expiresIn": token.expiresAt,
-      "idToken": String(token.IDTokenRaw)
+      "idToken": token.IDTokenRaw ?? ""
     ]
   }
   
